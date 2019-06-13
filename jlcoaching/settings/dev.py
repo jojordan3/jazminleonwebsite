@@ -12,7 +12,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 WAGTAIL_CACHE = False
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
+#try:
+#    from .local_settings import *
+#except ImportError:
+#    pass
