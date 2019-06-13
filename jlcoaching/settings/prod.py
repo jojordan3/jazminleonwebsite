@@ -136,7 +136,7 @@ CACHES = {
 #        'PORT': '5432',
 #    }
 #}
-
+COMPRESS_ENABLED = True
 #DATABASES['default']['ATOMIC_REQUESTS'] = True  # noqa F405
 #DATABASES['default']['CONN_MAX_AGE'] = 60
 DATABASES['default'] = dj_database_url.parse(os.environ['DATABASE_URL'], conn_max_age=600)
