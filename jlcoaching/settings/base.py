@@ -90,6 +90,7 @@ INSTALLED_APPS = [
     'fluent_contents.plugins.rawhtml',
     'fluent_contents.plugins.text',
 
+    'compressor',
     'whitenoise',
     # Some plugins need extra Django applications
     #'disqus',
