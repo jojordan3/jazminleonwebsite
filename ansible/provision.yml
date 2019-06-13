@@ -12,14 +12,6 @@
       - role: database 
   tags:
       - database
-        
-- name:  configure and provision nginx and letsencrypt ssl cert 
-  hosts: all 
-  remote_user: '{{ deploy_user }}' 
-  roles:
-      - role: nginx 
-  tags:
-      - nginx_le
 
 - name: provision application code django, redis and celery etc. 
   hosts: all 

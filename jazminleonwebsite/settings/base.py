@@ -10,7 +10,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 from sys import path
 
-
 import environ
 env = environ.Env()
 
@@ -199,16 +198,11 @@ COMPRESS_OFFLINE = False
 
 # Settings for wagalytics
 # see https://github.com/tomdyson/wagalytics
-GA_KEY_FILEPATH = env('GA_KEY_FILEPATH', default='/path/to/secure/directory/your-key.json')
+GA_KEY_CONTENT = env('GA_KEY_CONTENT')
 GA_VIEW_ID = env('GA_VIEW_ID', default='ga:xxxxxxxxxxxxx')
 
 
 # Google Maps Key
-
-GOOGLE_MAPS_KEY = ''
-DYNAMIC_MAP_URL = ''
-STATIC_MAP_URL = ''
-
 # Wagtail settings
 
 LOGIN_URL = 'wagtailadmin_login'

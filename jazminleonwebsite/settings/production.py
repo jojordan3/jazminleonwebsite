@@ -52,12 +52,12 @@ WAGTAIL_SITE_NAME = 'Jazmin Leon Website'
 # (requires the django-celery package):
 # http://celery.readthedocs.org/en/latest/configuration.html
 
-# import djcelery
-#
-# djcelery.setup_loader()
-#
-# CELERY_SEND_TASK_ERROR_EMAILS = True
-# BROKER_URL = 'redis://'
+import djcelery
+
+djcelery.setup_loader()
+
+CELERY_SEND_TASK_ERROR_EMAILS = True
+BROKER_URL = env.db('REDIS_BROKER_URL')
 
 
 # Use Redis as the cache backend for extra performance
@@ -67,7 +67,7 @@ WAGTAIL_SITE_NAME = 'Jazmin Leon Website'
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': '{0}/{1}'.format(env('REDIS_URL', default='redis://127.0.0.1:6379'), 0),
+        'LOCATION': env.db('REDIS_CACHE_URL'),
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
             'IGNORE_EXCEPTIONS': True,
