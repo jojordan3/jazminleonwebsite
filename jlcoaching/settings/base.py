@@ -99,6 +99,7 @@ INSTALLED_APPS = [
     #'storages',
     #'django_redis',
     #'anymail',
+    'mc_tasklist',
 ]
 
 MIDDLEWARE = [

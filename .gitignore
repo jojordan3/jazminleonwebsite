@@ -16,6 +16,8 @@
 auto-save-list
 tramp
 .\#*
+
+Dockerfile
 .service_accounts
 .ebextensions
 # Org-mode

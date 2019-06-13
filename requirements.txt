@@ -25,6 +25,7 @@ django-eventtools==0.9.11
 django-fluent-contents==2.0.5
 django-fluent-pages==2.0.5
 django-fluent-utils==2.0.1
+django-heroku==0.3.1
 django-js-asset==1.2.2
 django-libsass==0.7
 django-modelcluster==4.4
@@ -46,6 +47,7 @@ fluentcms-cookielaw==2.0
 fluentcms-countdown==1.2
 future==0.17.1
 geocoder==1.38.1
+gunicorn==19.9.0
 html5lib==1.0.1
 icalendar==4.0.3
 idna==2.8
@@ -54,6 +56,7 @@ Markdown==2.6.11
 Pillow==5.4.1
 pycparser==2.19
 Pygments==2.4.2
+pylibmc==1.6.0
 python-dateutil==2.8.0
 pytz==2019.1
 ratelim==0.1.6

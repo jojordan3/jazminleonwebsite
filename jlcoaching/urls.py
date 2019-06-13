@@ -5,6 +5,7 @@ from wagtail.documents import urls as wagtaildocs_urls
 from coderedcms import admin_urls as coderedadmin_urls
 from coderedcms import search_urls as coderedsearch_urls
 from coderedcms import urls as codered_urls
+from mc_tasklist import views
 
 urlpatterns = [
     # Admin
@@ -16,6 +17,11 @@ urlpatterns = [
 
     # Search
     path('search/', include(coderedsearch_urls)),
+
+    # mc_tasklist
+    path('add', views.add),
+    path('remove', views.remove),
+    path('', views.index),
 
     # For anything not caught by a more specific rule above, hand over to
     # the page serving mechanism. This should be the last pattern in

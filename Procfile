@@ -1,0 +1,1 @@
+web: gunicorn jlcoaching.wsgi --log-file -
