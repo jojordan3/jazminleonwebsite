@@ -139,7 +139,7 @@ CACHES = {
 
 #DATABASES['default']['ATOMIC_REQUESTS'] = True  # noqa F405
 #DATABASES['default']['CONN_MAX_AGE'] = 60
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES['default'] = dj_database_url.parse(os.environ['DATABASE_URL'], conn_max_age=600)
 
 #try:
 #    from .local_settings import *
