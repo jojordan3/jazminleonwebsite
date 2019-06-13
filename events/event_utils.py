@@ -12,7 +12,7 @@ def export_event(event, format='ical'):
     ical_components = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
-        'PRODID:-//Jazmin Leon Website//wagtail//EN',
+        'PRODID:-//Jazmin Leon LLC//wagtail//EN',
     ]
 
     # Work out number of days the event lasts
@@ -53,7 +53,7 @@ def export_event(event, format='ical'):
 
         # Make a uid
         uid = hashlib.sha1(event.url + str(start_datetime)).hexdigest() \
-            + '@jazminleonwebsite'
+            + '@jazminleon'
 
         # Make event
         ical_components.extend([
