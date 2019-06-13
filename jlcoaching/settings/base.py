@@ -90,6 +90,7 @@ INSTALLED_APPS = [
     'fluent_contents.plugins.rawhtml',
     'fluent_contents.plugins.text',
 
+    'whitenoise',
     # Some plugins need extra Django applications
     #'disqus',
     'django_comments',
@@ -116,6 +117,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
     # Error reporting. Uncomment this to recieve emails when a 404 is triggered.
     #'django.middleware.common.BrokenLinkEmailsMiddleware',
