@@ -137,7 +137,7 @@ CACHES = {
 #    }
 #}
 COMPRESS_ENABLED = True
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #DATABASES['default']['ATOMIC_REQUESTS'] = True  # noqa F405
 #DATABASES['default']['CONN_MAX_AGE'] = 60
 DATABASES['default'] = dj_database_url.parse(os.environ['DATABASE_URL'], conn_max_age=600)

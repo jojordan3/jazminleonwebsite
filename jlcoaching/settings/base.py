@@ -91,7 +91,7 @@ INSTALLED_APPS = [
     'fluent_contents.plugins.text',
 
     'compressor',
-    'whitenoise',
+    #'whitenoise',
     # Some plugins need extra Django applications
     #'disqus',
     'django_comments',
@@ -119,7 +119,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
 
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
 
     # Error reporting. Uncomment this to recieve emails when a 404 is triggered.
     #'django.middleware.common.BrokenLinkEmailsMiddleware',
@@ -152,6 +152,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'jlcoaching.wsgi.application'
 
+use_default_site = True
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -187,6 +188,7 @@ USE_TZ = True
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
