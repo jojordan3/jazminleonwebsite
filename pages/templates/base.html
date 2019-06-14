@@ -57,7 +57,7 @@
   	  		<div class="grid-container">
   	        	<div class="grid-x grid-padding-x align-spaced">
   	          		<div id="contact-us" class="medium-3 cell">
-  	            		<h5><strong>Get in Contact</strong></h5>
+  	            		<h5><strong>Contact</strong></h5>
   	            		{% get_contact_fields as contact %}
   	            		{% include "contact/includes/contact_card.html" with contact=contact only %}
   	
@@ -70,20 +70,14 @@
   	          		</div>
   	
   	          		<div id="sitemap" class="medium-3 cell hide-for-small-only">
-	            		<h5><strong>Explore Our Site</strong></h5>
+	            		<h5><strong>Take a Look Around</strong></h5>
 	            		{% site_menu parent=site_root calling_page=self %}
-	          		</div>
-	
-	          		<div class="medium-4 cell text-center hide-for-small-only">
-	            		<a href="https://www.google.com/maps/place/chrisdev/" target="_blank">
-	            			<img src="{% static 'img/map.png' %}" alt="" style="border: 5px solid #fff;" />
-	            		</a>
 	          		</div>
   	        	</div>
   	        </div>
   	    	<div id="copyright">
   	      		<div class="grid-x grid-padding-x align-center">
-  	        		<p>Copyright © 2018 ChrisDev. All rights reserved</p>
+  	        		<p>Copyright © 2019 Jazmin Leon LLC. All rights reserved</p>
   	      		</div>
   	    	</div>
   	  	</footer>
