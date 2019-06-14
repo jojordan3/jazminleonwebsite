@@ -16,7 +16,7 @@ chardet==3.0.4
 Click==7.0
 coderedcms==0.14.1
 decorator==4.4.0
-Django==2.0.13
+Django<2.2,>=2.0
 django-appconf==1.0.3
 django-bootstrap4==0.0.8
 django-compressor==2.3
@@ -68,7 +68,7 @@ sqlparse==0.3.0
 textile==3.0.3
 Unidecode==1.0.23
 urllib3==1.25.3
-wagtail==2.2.2
+wagtail==2.4.*
 wagtail-cache==0.5.1
 wagtail-import-export==0.1
 wagtail-markdown==0.5

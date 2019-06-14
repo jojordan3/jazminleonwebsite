@@ -17,6 +17,7 @@ auto-save-list
 tramp
 .\#*
 
+.local_settings.py
 Dockerfile
 .service_accounts
 .ebextensions
