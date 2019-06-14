@@ -1,4 +1,8 @@
 from .base import *
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -14,8 +18,3 @@ EMAIL_HOST = 'smtp.google.com'
 EMAIL_PORT = 587
 
 WAGTAIL_CACHE = False
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
