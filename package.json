@@ -1,5 +1,5 @@
 {
-    "name": "jazminleon",
+    "name": "root",
     "version": "1.0.0",
     "main": "index.js",
     "repository": "",
@@ -15,10 +15,5 @@
     },
     "cacheDirectories": [
         "pages/static"
-    ],
-    "dependencies": {
-        "foundation-sites": "^6.5.3",
-        "jquery": "^3.4.1",
-        "what-input": "^5.2.3"
-    }
+    ]
 }
