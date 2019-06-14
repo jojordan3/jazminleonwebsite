@@ -15,7 +15,7 @@ EMAIL_PORT = 587
 
 WAGTAIL_CACHE = False
 
-#try:
-#    from .local_settings import *
-#except ImportError:
-#    pass
+try:
+    from .local_settings import *
+except ImportError:
+    pass
