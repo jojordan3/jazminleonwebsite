@@ -12,6 +12,8 @@
     	<link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}"/>
     	{% block canonical_url %}{% endblock %}
 	
+			<link rel="manifest" href="{% static 'site.webmanifest' %}" />
+
 		{% block cdn_css %}
 			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" />
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" />
