@@ -1,0 +1,24 @@
+{
+    "name": "jazminleon",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "",
+    "author": "Joanne Jordan",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "heroku-prebuild": "NODE_ENV=production cd frontend/ && npm install"
+    },
+    "engines": {
+        "node": "10.12.0",
+        "npm": "6.4.1"
+    },
+    "cacheDirectories": [
+        "pages/static"
+    ],
+    "dependencies": {
+        "foundation-sites": "^6.5.3",
+        "jquery": "^3.4.1",
+        "what-input": "^5.2.3"
+    }
+}
