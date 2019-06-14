@@ -62,17 +62,6 @@ TEMPLATES = [
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
-# Compress static files offline
-# http://django-compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
-
-COMPRESS_OFFLINE = True
-
-COMPRESS_CSS_FILTERS = [
-    'compressor.filters.css_default.CssAbsoluteFilter',
-    'compressor.filters.cssmin.CSSMinFilter',
-]
-
-
 servers = os.environ['MEMCACHIER_SERVERS']
 username = os.environ['MEMCACHIER_USERNAME']
 password = os.environ['MEMCACHIER_PASSWORD']
@@ -145,7 +134,6 @@ CACHES = {
 #        'PORT': '5432',
 #    }
 #}
-COMPRESS_ENABLED = True
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #DATABASES['default']['ATOMIC_REQUESTS'] = True  # noqa F405
 #DATABASES['default']['CONN_MAX_AGE'] = 60
