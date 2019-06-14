@@ -3,10 +3,17 @@ import django_heroku
 import dj_database_url
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ['DEBUG']
 WAGTAIL_CACHE = True
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['SECRET_KEY']
+
+INSTALLED_APPS += [
+    'wagtail.contrib.frontend_cache',
+    'gunicorn',
+]
+
+TEMPLATES[0]['OPTIONS']['debug']  = DEBUG
 
 # Add your site's domain name(s) here.
 ALLOWED_HOSTS = ['www.jazminleon.com', 'www.jazminleoncoaching.com', 'jazminleon.herokuapp.com']
@@ -23,16 +30,6 @@ EMAIL_PORT = 587
 
 # Default email address used to send messages from the website.
 DEFAULT_FROM_EMAIL = 'Jazmin Leon LLC <noreply@jazminleon.com>'
-
-# A list of people who get error notifications.
-ADMINS = [
-    ('Jazmin Leon', 'jazmin.leon.llc@gmail.com'),
-    ('Joanne Jordan', 'joanne.k.m.jordan@gmail.com'),
-]
-
-# A list in the same format as ADMINS that specifies who should get broken link
-# (404) notifications when BrokenLinkEmailsMiddleware is enabled.
-MANAGERS = ADMINS
 
 # Email address used to send error messages to ADMINS.
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
@@ -65,9 +62,21 @@ TEMPLATES = [
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
+# Compress static files offline
+# http://django-compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
+
+COMPRESS_OFFLINE = True
+
+COMPRESS_CSS_FILTERS = [
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    'compressor.filters.cssmin.CSSMinFilter',
+]
+
+
 servers = os.environ['MEMCACHIER_SERVERS']
 username = os.environ['MEMCACHIER_USERNAME']
 password = os.environ['MEMCACHIER_PASSWORD']
+
 
 CACHES = {
     'default': {

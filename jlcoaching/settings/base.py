@@ -13,8 +13,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR = os.path.dirname(PROJECT_DIR)
-
+PROJECT_ROOT = os.path.dirname(PROJECT_DIR)
+BASE_DIR = PROJECT_ROOT
 SITE_ID = 1
 # Application definition
 
@@ -98,6 +98,7 @@ INSTALLED_APPS = [
     'django_wysiwyg',
     #'form_designer',
 
+    'debug_toolbar',
     #'storages',
     #'django_redis',
     #'anymail',
@@ -107,16 +108,17 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     # Save pages to cache. Must be FIRST.
     'wagtailcache.cache.UpdateCacheMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 
     # Common functionality
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.common.CommonMiddleware',
 
     # Security
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.security.SecurityMiddleware',
 
     #'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -131,6 +133,7 @@ MIDDLEWARE = [
     # Fetch from cache. Must be LAST.
     'wagtailcache.cache.FetchFromCacheMiddleware',
 ]
+
 
 ROOT_URLCONF = 'jlcoaching.urls'
 
@@ -149,17 +152,16 @@ TEMPLATES = [
         },
     },
 ]
+TEMPLATES[0]['OPTIONS']['debug'] = True
 
 WSGI_APPLICATION = 'jlcoaching.wsgi.application'
-
-use_default_site = True
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(PROJECT_ROOT, 'db.sqlite3'),
     }
 }
 
@@ -191,16 +193,16 @@ STATICFILES_FINDERS = [
     'compressor.finders.CompressorFinder',
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 MEDIA_URL = '/media/'
 
 
 # Login
-LOGIN_URL = 'wagtailadmin_login'
-LOGIN_REDIRECT_URL = 'wagtailadmin_home'
+LOGIN_URL = 'wadmin_login'
+LOGIN_REDIRECT_URL = 'wadmin_home'
 
 PASSWORD_HASHERS = [
     # https://docs.djangoproject.com/en/dev/topics/auth/passwords/#using-argon2-with-django
@@ -230,5 +232,43 @@ BOOTSTRAP4 = {
 }
 
 
+# Django compressor settings
+# http://django-compressor.readthedocs.org/en/latest/settings/
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
+
+COMPRESS_CACHEABLE_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
+
+COMPRESS_OFFLINE = False
+
+# A list of people who get error notifications.
+ADMINS = [
+    ('Jazmin Leon', 'jazmin.leon.llc@gmail.com'),
+    ('Joanne Jordan', 'joanne.k.m.jordan@gmail.com'),
+]
+
+# A list in the same format as ADMINS that specifies who should get broken link
+# (404) notifications when BrokenLinkEmailsMiddleware is enabled.
+MANAGERS = ADMINS
+
 # Tags
 TAGGIT_CASE_INSENSITIVE = True
+
+DEBUG_TOOLBAR_PANELS = [
+    'debug_toolbar.panels.versions.VersionsPanel',
+    'debug_toolbar.panels.timer.TimerPanel',
+    'debug_toolbar.panels.settings.SettingsPanel',
+    'debug_toolbar.panels.headers.HeadersPanel',
+    'debug_toolbar.panels.request.RequestPanel',
+    'debug_toolbar.panels.sql.SQLPanel',
+    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+    'debug_toolbar.panels.templates.TemplatesPanel',
+    'debug_toolbar.panels.cache.CachePanel',
+    'debug_toolbar.panels.signals.SignalsPanel',
+    'debug_toolbar.panels.logging.LoggingPanel',
+    'debug_toolbar.panels.redirects.RedirectsPanel',
+]
