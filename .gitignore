@@ -24,7 +24,8 @@ Dockerfile
 # Org-mode
 .org-id-locations
 *_archive
-node_modules/*
+
+pages/static/node_modules/*
 # flymake-mode
 *_flymake.*
 env
