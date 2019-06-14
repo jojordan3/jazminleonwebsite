@@ -11,7 +11,7 @@ from wagtail.contrib.sitemaps.views import sitemap
 from coderedcms import admin_urls as coderedadmin_urls
 from coderedcms import search_urls as coderedsearch_urls
 from coderedcms import urls as codered_urls
-from mc_tasklist import views
+from mc_tasklist import views as taskviews
 
 from wagtail_feeds.feeds import BasicFeed, ExtendedFeed
 
@@ -35,9 +35,9 @@ urlpatterns = [
     path('search/', include(coderedsearch_urls)),
 
     # mc_tasklist
-    path('add', views.add),
-    path('remove', views.remove),
-    path('index', views.index),
+    path('add', taskviews.add),
+    path('remove', taskviews.remove),
+    path('index', taskviews.index),
 
     # For anything not caught by a more specific rule above, hand over to
     # the page serving mechanism. This should be the last pattern in
