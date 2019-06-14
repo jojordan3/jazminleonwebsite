@@ -7,7 +7,7 @@
     "license": "MIT",
     "private": true,
     "scripts": {
-        "heroku-prebuild": "NODE_ENV=production cd frontend/ && npm install"
+        "heroku-prebuild": "NODE_ENV=production cd pages/static && npm install"
     },
     "engines": {
         "node": "10.12.0",
