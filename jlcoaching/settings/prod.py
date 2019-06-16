@@ -1,6 +1,7 @@
 from .base import *
 import django_heroku
 import dj_database_url
+import urlparse
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ['DEBUG']
@@ -62,48 +63,15 @@ TEMPLATES = [
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
-servers = os.environ['MEMCACHIER_SERVERS']
-username = os.environ['MEMCACHIER_USERNAME']
-password = os.environ['MEMCACHIER_PASSWORD']
-
+redis_url = urlparse.urlparse(os.environ.get('REDISCLOUD_URL'))
 
 CACHES = {
-    'default': {
-        # Use pylibmc
-        'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
-
-        # TIMEOUT is not the connection timeout! It's the default expiration
-        # timeout that should be applied to keys! Setting it to `None`
-        # disables expiration.
-        'TIMEOUT': None,
-
-        'LOCATION': servers,
-
-        'OPTIONS': {
-            # Use binary memcache protocol (needed for authentication)
-            'binary': True,
-            'username': username,
-            'password': password,
-            'behaviors': {
-                # Enable faster IO
-                'no_block': True,
-                'tcp_nodelay': True,
-
-                # Keep connection alive
-                'tcp_keepalive': True,
-
-                # Timeout settings
-                'connect_timeout': 2000, # ms
-                'send_timeout': 750 * 1000, # us
-                'receive_timeout': 750 * 1000, # us
-                '_poll_timeout': 2000, # ms
-
-                # Better failover
-                'ketama': True,
-                'remove_failed': 1,
-                'retry_timeout': 2,
-                'dead_timeout': 30,
-            }
+        'default': {
+            'BACKEND': 'redis_cache.RedisCache',
+            'LOCATION': '%s:%s' % (redis_url.hostname, redis_url.port),
+            'OPTIONS': {
+                'PASSWORD': redis_url.password,
+                'DB': 0,
         }
     }
 }
