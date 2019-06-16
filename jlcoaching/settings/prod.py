@@ -4,14 +4,14 @@ import dj_database_url
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ['DEBUG']
-WAGTAIL_CACHE = True
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['SECRET_KEY']
 
 INSTALLED_APPS += [
-    'wagtail.contrib.frontend_cache',
     'gunicorn',
 ]
+WAGTAIL_CACHE = True
 
 TEMPLATES[0]['OPTIONS']['debug']  = DEBUG
 

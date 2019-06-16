@@ -17,6 +17,8 @@ auto-save-list
 tramp
 .\#*
 
+venv
+env
 .local_settings.py
 Dockerfile
 .service_accounts

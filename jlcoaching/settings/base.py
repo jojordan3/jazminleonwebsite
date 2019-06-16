@@ -21,15 +21,15 @@ SITE_ID = 1
 INSTALLED_APPS = [
     # This project
     'website',
-    'blog',
-    'contact',
-    'documents_gallery',
-    'events',
-    'gallery',
-    'pages',
-    'people',
-    'products',
-    'utils',
+    #'blog',
+    #'contact',
+    #'documents_gallery',
+    #'events',
+    #'gallery',
+    #'pages',
+    #'people',
+    #'products',
+    #'utils',
 
     # CodeRed CMS
     'coderedcms',
@@ -102,7 +102,6 @@ INSTALLED_APPS = [
     #'storages',
     #'django_redis',
     #'anymail',
-    'mc_tasklist',
 ]
 
 MIDDLEWARE = [
