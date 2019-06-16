@@ -1,7 +1,7 @@
 from .base import *
 import django_heroku
 import dj_database_url
-import urlparse
+from urllib import parse
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ['DEBUG']
@@ -63,7 +63,7 @@ TEMPLATES = [
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
-redis_url = urlparse.urlparse(os.environ.get('REDISCLOUD_URL'))
+redis_url = parse.urlparse(os.environ.get('REDISCLOUD_URL'))
 
 CACHES = {
         'default': {
