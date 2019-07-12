@@ -10,15 +10,15 @@ from coderedcms import urls as codered_urls
 
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.views.generic.base import RedirectView
-from django.shortcuts import render
+from django.shortcuts import render_to_response
 
 urlpatterns = [
     # Admin
     path('django-admin/', admin.site.urls),
     path('admin/', include(coderedadmin_urls)),
 
-    path('privacy-policy/', render('privacy.html')),
-    path('terms-of-use/', render('terms.html')),
+    path('privacy-policy/', render_to_response('privacy.html')),
+    path('terms-of-use/', render_to_response('terms.html')),
     # Documents
     path('docs/', include(wagtaildocs_urls)),
 
