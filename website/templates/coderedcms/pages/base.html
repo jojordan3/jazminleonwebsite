@@ -83,25 +83,25 @@
         {% endblock %}
 
         {% block favicon %}
-            {% if settings.coderedcms.LayoutSettings.favicon %}
-                {# See https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/ #}
-                {% image settings.coderedcms.LayoutSettings.favicon fill-120x120 format-png as favicon_iphone %}
-                {% image settings.coderedcms.LayoutSettings.favicon fill-180x180 format-png as favicon_iphone_plus %}
-                {% image settings.coderedcms.LayoutSettings.favicon fill-152x152 format-png as favicon_ipad %}
-                {% image settings.coderedcms.LayoutSettings.favicon fill-167x167 format-png as favicon_ipad_pro %}
-                <link rel="icon" type="image/png" href="{{ favicon_iphone_plus.url }}" />
-                <link rel="apple-touch-icon" href="{{ favicon_iphone_plus.url }}">
-                <link rel="apple-touch-icon" sizes="120x120" href="{{ favicon_iphone.url }}">
-                <link rel="apple-touch-icon" sizes="180x180" href="{{ favicon_iphone_plus.url }}">
-                <link rel="apple-touch-icon" sizes="152x152" href="{{ favicon_ipad.url }}">
-                <link rel="apple-touch-icon" sizes="167x167" href="{{ favicon_ipad_pro.url }}">
-            {% endif %}
+            <link rel="apple-touch-icon" sizes="180x180" href="http://www.jazminleon.com/favicons/apple-touch-icon.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="http://www.jazminleon.com/favicons/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="http://www.jazminleon.com/favicons/favicon-16x16.png">
+            <link rel="manifest" href="http://www.jazminleon.com/favicons/site.webmanifest">
+            <link rel="mask-icon" href="http://www.jazminleon.com/favicons/safari-pinned-tab.svg" color="#009999">
+            <link rel="shortcut icon" href="http://www.jazminleon.com/favicons/favicon.ico">
+            <meta name="apple-mobile-web-app-title" content="Jazmin Leon">
+            <meta name="application-name" content="Jazmin Leon">
+            <meta name="msapplication-TileColor" content="#ffc40d">
+            <meta name="msapplication-config" content="http://www.jazminleon.com/favicons/browserconfig.xml">
+            <meta name="theme-color" content="#009999">
         {% endblock %}
 
         {% block extra_head %}{% endblock %}
         
         <!-- MailMunch Code -->
         <script src="//a.mailmunch.co/app/v1/site.js" id="mailmunch-script" data-mailmunch-site-id="657203" async="async"></script>
+        <!--MailChimp Code-->
+        <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/db6652f2a8f953bcb7d1fd3df/c42b8fe6077e8d7b3d820c7aa.js");</script>
     </head>
 
     <body class="coderedcms-{{page.content_type.model}} {% if page.get_parent %}parent-page-{{page.get_parent.id}}{% endif %} {% block body_class %}{% endblock %}" id="page-{{page.id}}">

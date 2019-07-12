@@ -1,0 +1,12 @@
+/* TEAM */
+
+Lead Developer:Joanne Jordan
+Contact: joanne@jazminleon.com
+
+Content: Krystal Martinez as Jazmin Leon
+
+/* SITE */
+Language:English
+Doctype: HTML5
+Components: Zurb Foundation, jQuery, Django, Wagtail CMS 
+Software: Vim, Adobe Illustrator Elements

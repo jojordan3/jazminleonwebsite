@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     # This project
     'website',
     #'blog',
+    #'legal',
     #'contact',
     #'documents_gallery',
     #'events',

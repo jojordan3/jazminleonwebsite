@@ -8,18 +8,27 @@ from coderedcms import admin_urls as coderedadmin_urls
 from coderedcms import search_urls as coderedsearch_urls
 from coderedcms import urls as codered_urls
 
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.views.generic.base import RedirectView
+from django.template.loader import render
+
 
 urlpatterns = [
     # Admin
     path('django-admin/', admin.site.urls),
     path('admin/', include(coderedadmin_urls)),
 
+    path('privacy-policy/', render('privacy.html')),
+    path('terms-of-use/', render('terms.html')),
     # Documents
     path('docs/', include(wagtaildocs_urls)),
 
     # Search
     path('search/', include(coderedsearch_urls)),
 
+    path('favicon.ico/', RedirectView.as_view('favicons/favicon.ico',
+            permanent=True),
+        name="favicon"),
     # For anything not caught by a more specific rule above, hand over to
     # the page serving mechanism. This should be the last pattern in
     # the list:
@@ -39,13 +48,6 @@ if settings.DEBUG:
     # Serve static and media files from development server
     urlpatterns += staticfiles_urlpatterns()
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-    urlpatterns += [
-        path('favicon.ico',
-            RedirectView.as_view(
-                url=settings.STATIC_URL + 'favicon.ico', permanent=True)
-            ),
-    ]
 
     if 'debug_toolbar' in settings.INSTALLED_APPS:
         import debug_toolbar
