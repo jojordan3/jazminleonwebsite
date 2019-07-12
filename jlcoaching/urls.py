@@ -10,8 +10,7 @@ from coderedcms import urls as codered_urls
 
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.views.generic.base import RedirectView
-from django.template.loader import render
-
+from django.shortcuts import render
 
 urlpatterns = [
     # Admin
