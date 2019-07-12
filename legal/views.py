@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
 
-def privacy_policy(request):
-    return render(request, 'legal/privacy.html', {})
+class PrivacyPolicy(TemplateView):
+    template_name = 'privacy.html'
 
 
-def terms_of_use(request):
-    return render(request, 'legal/terms.html', {})
+class TermsOfUse(TemplateView):
+    template_name = 'terms.html'
