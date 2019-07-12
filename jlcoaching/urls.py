@@ -23,6 +23,7 @@ urlpatterns = [
     # Documents
     path('docs/', include(wagtaildocs_urls)),
 
+
     # Search
     path('search/', include(coderedsearch_urls)),
 
