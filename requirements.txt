@@ -71,6 +71,7 @@ Unidecode==1.0.23
 urllib3==1.25.3
 wagtail==2.4
 wagtail-cache==0.5.1
+wagtail-clear-cache==0.0.1
 wagtail-import-export==0.1
 wagtail-markdown==0.5
 wagtailfontawesome==1.1.4

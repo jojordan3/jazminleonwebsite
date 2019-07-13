@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'wagtail.contrib.routable_page',
     'wagtail.contrib.sitemaps',
     'wagtail.contrib.search_promotions',
+    'wagtail_clear_cache',
     #'wagtail.contrib.postgres_search',
     'wagtail_feeds',
     'wagtailmarkdown',
