@@ -69,7 +69,7 @@ sqlparse==0.3.0
 textile==3.0.3
 Unidecode==1.0.23
 urllib3==1.25.3
-wagtail==2.4
+wagtail==2.7.4
 wagtail-cache==0.5.1
 wagtail-clear-cache==0.0.1
 wagtail-import-export==0.1
