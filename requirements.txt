@@ -41,7 +41,7 @@ django-template-analyzer==1.6.1
 django-treebeard==4.3
 django-wagtail-feeds==0.1.0
 django-wysiwyg==0.8.0
-djangorestframework==3.9.4
+djangorestframework==3.11.2
 docutils==0.14
 draftjs-exporter==2.1.6
 fluentcms-cookielaw==2.0
